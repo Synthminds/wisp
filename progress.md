@@ -1,9 +1,16 @@
 # progress.md — session handoff (keep under 50 lines)
 
 ## Current state (2026-07-04)
-v2 kickoff scaffold unpacked into the repo and Phase 1 foundation scaffolding
-started. Global Coding Rules (Synthminds Engineering Standards, via Mem) now
-referenced from CLAUDE.md; v4 executive briefing PDF added to docs/.
+v2 scaffold unpacked; Phase 1 foundation built and verified (typecheck, lint,
+13 tests, next build all green; seed:verify 72 rows / 49-8-15). Global Coding
+Rules (Synthminds, via Mem) referenced from CLAUDE.md; v4 briefing PDF in docs/.
+
+Now present: Next 15 + React 19 + Tailwind 4 app shell (+ /api/health),
+full Drizzle schema in src/db/schema.ts with THE CONTRACT enforced in SQL
+(human_owner enum has no 'wisp'; planning/monitoring owner CHECK='wisp';
+confirmation XOR + partial-unique idempotency; RLS crudPolicy on all 9 tables),
+migration drizzle/migrations/0000_init.sql, idempotent seed loader, contract
+tests, feature plans in docs/features/, verify skill + fixer agent in .claude/.
 
 What exists and is verified:
 - seed/responsibilities.json — 72 rows, owner totals verified against the
@@ -18,8 +25,10 @@ What exists and is verified:
 - .claude/rules/ now includes fleet.md alongside db/api/webhooks/ai
 
 ## Next action
-Phase 1, first task: project init + Drizzle schema (v2 tables included).
-Read docs/plan.md §Phase 1 and .claude/rules/db.md before touching the schema.
+Provision a Neon project, set DATABASE_URL(_OWNER), run `pnpm db:migrate` then
+`pnpm seed`, and confirm 72 rows land. Then two-user auth + the T1 calendar
+engine v0 (docs/features/ has the Phase-2/2.5/3 plans). DB-less checks:
+`pnpm typecheck && pnpm test && pnpm lint && pnpm build && pnpm seed:verify`.
 
 ## Standing constraints (do not relearn these)
 - THE CONTRACT: execution.owner is never 'wisp' (see CLAUDE.md)

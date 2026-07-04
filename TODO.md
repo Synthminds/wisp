@@ -3,13 +3,17 @@
 Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
 
 ## Phase 1 — Foundation (target: week 1)
-- [ ] Init Next.js 15 + TS + Tailwind 4 project, pnpm, strict tsconfig
-- [ ] Neon project + Drizzle schema: responsibility, observation, signal
-      (criticality + escalation_policy), plan/plan_item (pact + pact_owner),
-      confirmation (XOR + partial unique idempotency), briefing, device,
-      capture_deadletter
-- [ ] RLS policies (crudPolicy) + two-role connection setup
-- [ ] `pnpm seed` — idempotent load of seed/responsibilities.json (verify 72 rows, owner counts vs _meta)
+- [x] Init Next.js 15 + TS + Tailwind 4 project, pnpm, strict tsconfig
+      (typecheck/lint/test/build all green; app shell + /api/health up)
+- [x] Drizzle schema: responsibility, observation, signal (criticality +
+      escalation_policy), plan/plan_item (pact + pact_owner), confirmation
+      (XOR + partial unique idempotency), briefing, device, capture_deadletter.
+      Migration 0000_init generated; CHECKs + partial-unique + RLS verified in SQL
+- [~] RLS policies (crudPolicy) + two-role connection setup — policies in schema
+      + src/db (getDb = authenticated, seed = owner). Needs a live Neon project.
+- [x] `pnpm seed` loader — idempotent upsert by id, re-asserts THE CONTRACT
+      (72 rows, no execution=wisp). Running it needs DATABASE_URL_OWNER.
+- [ ] Provision Neon project + run db:migrate + seed against it
 - [ ] Auth: two users (wes, ria), session-based, no public signup
 - [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
 - [ ] T1 engine v0: derive next-due dates for the 49 T1_calendar rows; inject to Wisp calendar
