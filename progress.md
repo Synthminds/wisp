@@ -11,6 +11,8 @@ full Drizzle schema in src/db/schema.ts with THE CONTRACT enforced in SQL
 confirmation XOR + partial-unique idempotency; RLS crudPolicy on all 9 tables),
 migration drizzle/migrations/0000_init.sql, idempotent seed loader, contract
 tests, feature plans in docs/features/, verify skill + fixer agent in .claude/.
+Also: EscalationPolicy Zod schema (cancel_on_confirm literal true) and the T1
+cadence engine v0 (src/lib/t1/cadence.ts). 48 tests green.
 
 What exists and is verified:
 - seed/responsibilities.json — 72 rows, owner totals verified against the

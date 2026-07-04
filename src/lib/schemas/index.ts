@@ -9,6 +9,7 @@
 export * from "./observation";
 export * from "./adapter";
 export * from "./confirmation";
+export * from "./escalation";
 
 export type {
   HumanOwner,
@@ -16,11 +17,13 @@ export type {
   Criticality,
   Responsibility,
   Observation,
-  EscalationPolicy,
   Signal,
   PlanItem,
   Plan,
   Briefing,
   Device,
+  // The Zod EscalationPolicy (./escalation) and Confirmation (./confirmation)
+  // are canonical; db-types' plain versions are re-exported under aliases.
+  EscalationPolicy as EscalationPolicyShape,
   Confirmation as ConfirmationRow,
 } from "./db-types";

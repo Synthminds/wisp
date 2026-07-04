@@ -16,7 +16,9 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
 - [ ] Provision Neon project + run db:migrate + seed against it
 - [ ] Auth: two users (wes, ria), session-based, no public signup
 - [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
-- [ ] T1 engine v0: derive next-due dates for the 49 T1_calendar rows; inject to Wisp calendar
+- [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts — parseFrequency +
+      nextDueDate, pure/tested; 26/49 rows schedulable, 23 need a human anchor).
+      Still to do: wire to the heartbeat + inject into the Wisp calendar (MCP).
 - [ ] Vercel deploy + cron heartbeat (15 min) with CRON_SECRET check
 
 ## Phase 2 — Capture + accountability (target: weeks 2-3)
