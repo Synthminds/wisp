@@ -18,7 +18,11 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
       passes all 6 contract assertions; 72 seed rows load, tiers 49/8/15, 0
       execution=wisp). Cloud step (Neon creds → db:migrate/db:verify/seed) is the
       human task — see docs/features/database-provisioning.md.
-- [ ] Auth: two users (wes, ria), session-based, no public signup
+- [~] Auth: two users (wes, ria), session-based, no public signup — DONE in
+      code+tests: scrypt password module (src/lib/auth/password.ts), HMAC session
+      tokens + getSessionUser (src/lib/auth/session.ts), POST /api/auth/login
+      (closed enum, generic 401, HttpOnly/Secure cookie), `pnpm auth:hash`.
+      Remaining: set SESSION_SECRET + AUTH_*_HASH in env, add a login UI page.
 - [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
 - [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts + src/lib/t1/derive.ts
       — parseFrequency/nextDueDate + deriveT1DueSignals, pure/tested; 26/49 rows

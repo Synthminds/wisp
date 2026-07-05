@@ -19,6 +19,8 @@ evaluation (src/lib/escalation/evaluate.ts), T1 due-signal derivation
 (app/api/cron/heartbeat). All pure/LLM-free; DB wiring deferred. 66 tests green.
 DB layer PROVEN on real Postgres 16: migration applies (9 tables, RLS, 36
 policies); verify-contract.sql 6/6; 72 seed rows, tiers 49/8/15, 0 execution=wisp.
+Two-user auth built+tested (scrypt passwords, HMAC sessions, /api/auth/login,
+pnpm auth:hash); needs env (SESSION_SECRET, AUTH_*_HASH) + a login page. 85 tests.
 
 What exists and is verified:
 - seed/responsibilities.json — 72 rows, owner totals verified against the
@@ -26,11 +28,9 @@ What exists and is verified:
   Regenerate only via scripts/generate-seed.py.
 - Zod/TS contracts in src/lib/schemas/ (observation, adapter, confirmation,
   db-types) — db-types + confirmation carry the v2 accountability model
-- Dashboard.jsx is a SPEC (v4: full + compact + intercom sheet) with mock
-  data, not production code
-- docs/plan.md v2 (adds Phase 2.5 fleet gate); docs/WISP-PROJECT-BRIEF.md v2
-  (18 sections incl. fleet/intercom/announce)
-- .claude/rules/ now includes fleet.md alongside db/api/webhooks/ai
+- Dashboard.jsx is a SPEC (v4, mock data), not production code
+- docs/plan.md v2 (Phase 2.5 fleet gate); WISP-PROJECT-BRIEF.md v2 (18 sections);
+  .claude/rules/ has fleet.md alongside db/api/webhooks/ai
 
 ## Next action
 Cloud DB provisioning is the last Phase-1 blocker and needs creds — follow

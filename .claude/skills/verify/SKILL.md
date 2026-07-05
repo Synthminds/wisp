@@ -87,6 +87,12 @@ that used it. The loop is adjust → verify → **document**.
   If a test needs `wisp` as an execution owner, the *test* is wrong.
 - pnpm 10 skips build scripts by default — if `vitest`/`tsx` fail to start,
   `pnpm rebuild esbuild`.
+- pnpm forwards a literal `--` to package scripts as argv[2] (unlike npm, which
+  strips it). CLI scripts taking positional args must skip a leading `--`, or
+  they silently consume it as the argument (bit `auth:hash`: it hashed "--").
+- Shell smoke tests of scrypt hashes: the `scrypt$16384$8$1$…` format contains
+  `$` — double-quote interpolation mangles it. Pass hashes via files, never
+  inline in a double-quoted shell string.
 
 ## Recommended (opt-in) enforcement
 
