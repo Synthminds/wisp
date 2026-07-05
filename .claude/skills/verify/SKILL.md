@@ -30,7 +30,16 @@ Data + schema checks:
 pnpm seed:verify        # python3 scripts/generate-seed.py — re-asserts 72 rows,
                         # tiers 49/8/15, owner counts; fails on drift
 pnpm db:generate        # drizzle-kit — schema must compile to SQL cleanly
+pnpm db:verify          # psql scripts/verify-contract.sql — proves THE CONTRACT
+                        # on a live DB (needs DATABASE_URL_OWNER + psql)
 ```
+
+To verify the schema WITHOUT cloud creds: stand up a local Postgres 16
+(`/usr/lib/postgresql/16/bin`), `CREATE ROLE authenticated NOLOGIN; CREATE ROLE
+anonymous NOLOGIN;` (Neon provides these; a plain PG doesn't — the RLS policies
+need them), apply `drizzle/migrations/0000_init.sql`, then run
+`scripts/verify-contract.sql`. Run the server as the `postgres` user from a
+path it can traverse (e.g. under `/var/lib/postgresql`, not the scratchpad).
 
 The DB (`pnpm seed`, `pnpm db:migrate`) needs `DATABASE_URL` / `DATABASE_URL_OWNER`.
 Without them, verify the schema with `pnpm db:generate` and the data with

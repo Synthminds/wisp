@@ -16,6 +16,7 @@
     "test:watch": "vitest",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
+    "db:verify": "psql \"$DATABASE_URL_OWNER\" -v ON_ERROR_STOP=1 -f scripts/verify-contract.sql",
     "seed": "tsx src/db/seed.ts",
     "seed:verify": "python3 scripts/generate-seed.py"
   },

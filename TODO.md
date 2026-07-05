@@ -13,7 +13,11 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
       + src/db (getDb = authenticated, seed = owner). Needs a live Neon project.
 - [x] `pnpm seed` loader — idempotent upsert by id, re-asserts THE CONTRACT
       (72 rows, no execution=wisp). Running it needs DATABASE_URL_OWNER.
-- [ ] Provision Neon project + run db:migrate + seed against it
+- [~] Provision Neon project + run db:migrate + seed against it — schema PROVEN
+      end-to-end on real Postgres 16 (migration applies; scripts/verify-contract.sql
+      passes all 6 contract assertions; 72 seed rows load, tiers 49/8/15, 0
+      execution=wisp). Cloud step (Neon creds → db:migrate/db:verify/seed) is the
+      human task — see docs/features/database-provisioning.md.
 - [ ] Auth: two users (wes, ria), session-based, no public signup
 - [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
 - [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts + src/lib/t1/derive.ts
