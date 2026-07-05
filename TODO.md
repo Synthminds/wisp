@@ -16,10 +16,15 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
 - [ ] Provision Neon project + run db:migrate + seed against it
 - [ ] Auth: two users (wes, ria), session-based, no public signup
 - [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
-- [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts — parseFrequency +
-      nextDueDate, pure/tested; 26/49 rows schedulable, 23 need a human anchor).
-      Still to do: wire to the heartbeat + inject into the Wisp calendar (MCP).
-- [ ] Vercel deploy + cron heartbeat (15 min) with CRON_SECRET check
+- [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts + src/lib/t1/derive.ts
+      — parseFrequency/nextDueDate + deriveT1DueSignals, pure/tested; 26/49 rows
+      schedulable, 23 need a human anchor). Still to do: read active rows from the
+      DB in the heartbeat + inject due dates into the Wisp calendar (MCP).
+- [~] Cron heartbeat route (app/api/cron/heartbeat) — force-dynamic, CRON_SECRET
+      verified (src/lib/http/verify.ts, constant-time), deterministic/LLM-free,
+      tested (401/200). Deterministic escalation core done too
+      (src/lib/escalation/evaluate.ts, cancel-on-confirm). Still to do: wire DB
+      reads/writes + Vercel deploy + the 15-min cron schedule.
 
 ## Phase 2 — Capture + accountability (target: weeks 2-3)
 - [ ] Telegram bot: webhook route, secret token verify, quick-capture to observation
