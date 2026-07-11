@@ -22,7 +22,8 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
       code+tests: scrypt password module (src/lib/auth/password.ts), HMAC session
       tokens + getSessionUser (src/lib/auth/session.ts), POST /api/auth/login
       (closed enum, generic 401, HttpOnly/Secure cookie), `pnpm auth:hash`.
-      Remaining: set SESSION_SECRET + AUTH_*_HASH in env, add a login UI page.
+      Login UI (app/login/page.tsx), logout route, and session gate on / done.
+      Remaining: set SESSION_SECRET + AUTH_*_HASH in env.
 - [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
 - [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts + src/lib/t1/derive.ts
       — parseFrequency/nextDueDate + deriveT1DueSignals, pure/tested; 26/49 rows

@@ -20,7 +20,9 @@ evaluation (src/lib/escalation/evaluate.ts), T1 due-signal derivation
 DB layer PROVEN on real Postgres 16: migration applies (9 tables, RLS, 36
 policies); verify-contract.sql 6/6; 72 seed rows, tiers 49/8/15, 0 execution=wisp.
 Two-user auth built+tested (scrypt passwords, HMAC sessions, /api/auth/login,
-pnpm auth:hash); needs env (SESSION_SECRET, AUTH_*_HASH) + a login page. 85 tests.
+pnpm auth:hash); login page + logout route + session gate on / now done
+(app/login, app/logout-button, / redirects to /login without a valid session).
+Needs env (SESSION_SECRET, AUTH_*_HASH) to actually sign in. 86 tests.
 
 What exists and is verified:
 - seed/responsibilities.json — 72 rows, owner totals verified against the
