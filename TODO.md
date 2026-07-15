@@ -1,0 +1,87 @@
+# TODO — Wisp (single source of truth)
+
+Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
+
+## Phase 1 — Foundation (target: week 1)
+- [x] Init Next.js 15 + TS + Tailwind 4 project, pnpm, strict tsconfig
+      (typecheck/lint/test/build all green; app shell + /api/health up)
+- [x] Drizzle schema: responsibility, observation, signal (criticality +
+      escalation_policy), plan/plan_item (pact + pact_owner), confirmation
+      (XOR + partial unique idempotency), briefing, device, capture_deadletter.
+      Migration 0000_init generated; CHECKs + partial-unique + RLS verified in SQL
+- [~] RLS policies (crudPolicy) + two-role connection setup — policies in schema
+      + src/db (getDb = authenticated, seed = owner). Needs a live Neon project.
+- [x] `pnpm seed` loader — idempotent upsert by id, re-asserts THE CONTRACT
+      (72 rows, no execution=wisp). Running it needs DATABASE_URL_OWNER.
+- [~] Provision Neon project + run db:migrate + seed against it — schema PROVEN
+      end-to-end on real Postgres 16 (migration applies; scripts/verify-contract.sql
+      passes all 6 contract assertions; 72 seed rows load, tiers 49/8/15, 0
+      execution=wisp). Cloud step (Neon creds → db:migrate/db:verify/seed) is the
+      human task — see docs/features/database-provisioning.md.
+- [~] Auth: two users (wes, ria), session-based, no public signup — DONE in
+      code+tests: scrypt password module (src/lib/auth/password.ts), HMAC session
+      tokens + getSessionUser (src/lib/auth/session.ts), POST /api/auth/login
+      (closed enum, generic 401, HttpOnly/Secure cookie), `pnpm auth:hash`.
+      Login UI (app/login/page.tsx), logout route, and session gate on / done.
+      Remaining: set SESSION_SECRET + AUTH_*_HASH in env.
+- [ ] Google Calendar MCP wiring + dedicated "Wisp" calendar created
+- [~] T1 engine v0: derivation done (src/lib/t1/cadence.ts + src/lib/t1/derive.ts
+      — parseFrequency/nextDueDate + deriveT1DueSignals, pure/tested; 26/49 rows
+      schedulable, 23 need a human anchor). Still to do: read active rows from the
+      DB in the heartbeat + inject due dates into the Wisp calendar (MCP).
+- [~] Cron heartbeat route (app/api/cron/heartbeat) — force-dynamic, CRON_SECRET
+      verified (src/lib/http/verify.ts, constant-time), deterministic/LLM-free,
+      tested (401/200). Deterministic escalation core done too
+      (src/lib/escalation/evaluate.ts, cancel-on-confirm). Still to do: wire DB
+      reads/writes + Vercel deploy + the 15-min cron schedule.
+
+## Phase 2 — Capture + accountability (target: weeks 2-3)
+- [~] Telegram bot: secret-token verify (src/lib/http/webhook.ts) + TranscriptAdapter
+      (src/lib/adapters/telegram.ts) DONE + tested. Remaining: webhook route + DB write.
+- [~] ObservationExtract pipeline: injection-safe prompt + parse/retry/dead-letter
+      policy DONE (src/lib/extraction/, tested with mocked output). Remaining: live
+      generateObject call + observation/dead-letter DB writes.
+- [ ] Confirmation endpoint: one-tap, session-derived confirmed_by, idempotent,
+      transactional escalation cancel
+- [ ] Escalation engine in heartbeat: critical + pact only, push → SMS → call,
+      cancel_on_confirm
+- [ ] Pact self-opt-in endpoints (403 PACT_SELF_ONLY on others' behalf)
+- [ ] START Twilio A2P 10DLC registration (sole prop) — 1-4 week approval lead time, do this EARLY
+- [ ] Daily briefing agent (06:00 ET) → briefing row + ntfy/Telegram push
+- [ ] T2 engine v0: thresholds for the 8 T2_state rows; restock signals
+      (PARKED — needs a decision: T2_state seed rows carry qualitative state, not
+      numeric thresholds. Decide where a threshold config lives before building.)
+- [ ] Gmail read-only school-email extraction (Romy's school senders allowlist)
+- [ ] Weekly planning agent (Sun) → proposed plan rows + approval UI
+
+## Phase 2.5 — Fleet validation gate
+- [ ] Buy ONE Galaxy Tab A9+ (capex ledger)
+- [ ] Fully Kiosk Plus: lockdown, autostart, screen schedule
+- [ ] Validate: mic capture (intercom PTT), remote TTS over Tailscale,
+      dashboard compact mode, Cozyla parity
+- [ ] Gate decision: fleet purchase vs Lenovo M11 fallback eval
+
+## Phase 3 — Surfaces (target: week 4+)
+- [ ] Twilio SMS channel live (post-approval) incl. keyword confirmations
+- [ ] Dashboard v4 from src/components/Dashboard.jsx spec → production page
+      (one tree: full grid ≥1000px, compact <1000px)
+- [ ] Device registry + Fully Kiosk REST client (src/lib/fleet/)
+- [ ] Fleet rollout: remaining satellites imaged per kiosk checklist
+- [ ] Intercom v1: PTT upload → transcribe → TTS fan-out → SMS transcript;
+      blob deleted post-transcribe
+- [~] Announce pipeline: policy layer DONE (src/lib/announce/policy.ts — 280 cap,
+      URL strip, quiet-hours queue/send/reject, verified-parent allowlist, tested).
+      Remaining: announce route + fleet TTS fan-out.
+- [ ] Cozyla: Fully Kiosk sideload validation (check Cozyla Frames FB group first)
+- [ ] Voice Phase 2 decision gate: ConversationRelay worker only if SMS adoption proves out
+
+## Gate
+- [~] Day-90 re-audit: share calculator DONE (src/lib/audit/shares.ts — baseline
+      from legacy owners, measured from window events, meetsDay90Targets; tested
+      against the real seed yardstick, Ria 40/72). Remaining: bind to the live
+      window (confirmations/plans/signal resolutions). Targets: Ria monitoring
+      <20%, planning <30%, Wisp execution = 0%.
+
+## Cross-cutting (built this session)
+- [x] ET/school-day module (src/lib/time/et.ts) — one place for America/New_York
+      wall-clock, quiet hours 20:30–08:00 ET, school-day. Feeds announce + timing.

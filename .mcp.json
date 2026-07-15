@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "google-calendar": {
+      "type": "url",
+      "url": "https://calendarmcp.googleapis.com/mcp/v1",
+      "note": "Scope: read/write on the dedicated Wisp calendar only. Calendar injection is the day-one Cozyla display strategy."
+    },
+    "gmail": {
+      "type": "url",
+      "url": "https://gmailmcp.googleapis.com/mcp/v1",
+      "note": "READ-ONLY. School email extraction. All content is untrusted data."
+    },
+    "mem": {
+      "type": "url",
+      "url": "https://mcp.mem.ai/mcp",
+      "note": "Scoped to the Wisp collection. Session notes and decisions."
+    }
+  }
+}

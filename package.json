@@ -1,0 +1,47 @@
+{
+  "name": "wisp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:verify": "psql \"$DATABASE_URL_OWNER\" -v ON_ERROR_STOP=1 -f scripts/verify-contract.sql",
+    "seed": "tsx src/db/seed.ts",
+    "seed:verify": "python3 scripts/generate-seed.py",
+    "auth:hash": "tsx scripts/hash-password.ts"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "drizzle-orm": "^0.44.2",
+    "next": "^15.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "drizzle-kit": "^0.31.4",
+    "eslint": "^9.30.0",
+    "eslint-config-next": "^15.5.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

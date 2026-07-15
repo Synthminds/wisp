@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Edit(./drizzle/migrations/**)",
+      "Edit(./.github/workflows/**)",
+      "Write(./drizzle/migrations/**)",
+      "Write(./.github/workflows/**)"
+    ]
+  }
+}

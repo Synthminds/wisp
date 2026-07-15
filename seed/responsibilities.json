@@ -1,0 +1,1813 @@
+{
+  "_meta": {
+    "source": "Household Responsibility Audit (Google Sheets), seeded 2026-06-09",
+    "ownership_rule": "All planning.owner and monitoring.owner flipped to 'wisp' per the P/M/E contract; human owners preserved in owner_legacy for the day-90 re-audit. execution.owner imported as-is and MUST stay human.",
+    "tiers": {
+      "T1_calendar": "deterministic cron checks",
+      "T2_state": "consumption/threshold models + capture",
+      "T3_human_capture": "humans see, Wisp routes"
+    }
+  },
+  "responsibilities": [
+    {
+      "id": "resp-001-husband-s-medical-appointments-and-health-manage",
+      "category": "Adult Health",
+      "name": "Husband's medical appointments and health management",
+      "planning": {
+        "description": "Identify needed visits, research providers, schedule",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Appointments are booked in advance"
+      },
+      "monitoring": {
+        "description": "Track upcoming visits, results, and follow-ups",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "No appointments are missed or overdue"
+      },
+      "execution": {
+        "description": "Attend appointments and manage own health",
+        "owner": "wes",
+        "definition_of_done": "Visits attended and any follow-up actioned"
+      },
+      "frequency": "As needed/annual",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-002-wife-s-medical-appointments-and-health-managemen",
+      "category": "Adult Health",
+      "name": "Wife's medical appointments and health management",
+      "planning": {
+        "description": "Identify needed visits, research providers, schedule",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Appointments are booked in advance"
+      },
+      "monitoring": {
+        "description": "Track upcoming visits, results, and follow-ups",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "No appointments are missed or overdue"
+      },
+      "execution": {
+        "description": "Attend appointments and manage own health",
+        "owner": "ria",
+        "definition_of_done": "Visits attended and any follow-up actioned"
+      },
+      "frequency": "As needed/annual",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-003-synthminds-management",
+      "category": "Business",
+      "name": "Synthminds management",
+      "planning": {
+        "description": "Strategic planning, priorities, and direction",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Goals and next steps are clearly defined"
+      },
+      "monitoring": {
+        "description": "Track spending",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Understanding of revenue and expenses"
+      },
+      "execution": {
+        "description": "Execute tasks and deliverables",
+        "owner": "wes",
+        "definition_of_done": "Committed work is completed on time"
+      },
+      "frequency": "Ongoing",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-004-deep-cleaning-coordination",
+      "category": "Cleaning and Tidying",
+      "name": "Deep cleaning coordination",
+      "planning": {
+        "description": "Coordinate cleaners and schedule, ensure sheets laundered and placed, ensure funds available, write check",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Cleaners are booked on recurring schedule"
+      },
+      "monitoring": {
+        "description": "Track cleaning cycle",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Next appointment is always confirmed"
+      },
+      "execution": {
+        "description": "Cleaners handle execution biweekly",
+        "owner": "outsource",
+        "definition_of_done": "Cleaners complete their visit"
+      },
+      "frequency": "Biweekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-005-general-tidying",
+      "category": "Cleaning and Tidying",
+      "name": "General tidying",
+      "planning": {
+        "description": "Decide what needs to be reset",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Expectations are shared"
+      },
+      "monitoring": {
+        "description": "Notice clutter",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Messes are flagged before they accumulate"
+      },
+      "execution": {
+        "description": "Tidy throughout the day",
+        "owner": "shared",
+        "definition_of_done": "Main areas are clear by end of day"
+      },
+      "frequency": "Daily",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-006-nightly-resets",
+      "category": "Cleaning and Tidying",
+      "name": "Nightly resets",
+      "planning": {
+        "description": "Set the standard for what done looks like",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Both partners agree on what reset means"
+      },
+      "monitoring": {
+        "description": "Notice what is left undone",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Incomplete areas are caught before bed"
+      },
+      "execution": {
+        "description": "Reset kitchen, living room, dining room, front hall, playroom",
+        "owner": "shared",
+        "definition_of_done": "All areas are clear before bed"
+      },
+      "frequency": "Nightly",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-007-trash-and-recycling",
+      "category": "Cleaning and Tidying",
+      "name": "Trash and recycling",
+      "planning": {
+        "description": "Know collection timing",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Collection days are known"
+      },
+      "monitoring": {
+        "description": "Notice when bins are full",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Bins checked before overflow"
+      },
+      "execution": {
+        "description": "Take out trash, recycling, break down boxes",
+        "owner": "wes",
+        "definition_of_done": "Bins are out on time and not overflowing"
+      },
+      "frequency": "Weekly + as needed",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-008-vacuuming-and-floor-cleanup",
+      "category": "Cleaning and Tidying",
+      "name": "Vacuuming and floor cleanup",
+      "planning": {
+        "description": "Determine when needed",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Frequency is agreed"
+      },
+      "monitoring": {
+        "description": "Notice dirt and debris",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Floors are checked proactively"
+      },
+      "execution": {
+        "description": "Vacuum or sweep",
+        "owner": "shared",
+        "definition_of_done": "Floors are visibly clean"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-009-dance",
+      "category": "Daughter Activities",
+      "name": "Dance",
+      "planning": {
+        "description": "Register, plan weekly clothing readiness",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Registration complete and clothing system in place"
+      },
+      "monitoring": {
+        "description": "Ensure daughter has correct clothes and is ready",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Outfit is confirmed ready before Monday"
+      },
+      "execution": {
+        "description": "Transport daughter on Mondays and present during class",
+        "owner": "wes",
+        "definition_of_done": "Daughter is participating in dance and home safely"
+      },
+      "frequency": "Weekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-010-clothing-management",
+      "category": "Daughter Clothing",
+      "name": "Clothing management",
+      "planning": {
+        "description": "Shop, size up, rotate by season",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Seasonal review is completed"
+      },
+      "monitoring": {
+        "description": "Notice what no longer fits or needs replacing",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Gaps are identified before daughter runs short"
+      },
+      "execution": {
+        "description": "Buy, organize, wash, put away",
+        "owner": "ria",
+        "definition_of_done": "Clothes are accessible and in good condition"
+      },
+      "frequency": "Weekly + seasonal",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-011-bedtime",
+      "category": "Daughter Daily Care",
+      "name": "Bedtime",
+      "planning": {
+        "description": "Maintain bedtime structure and routine",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Routine is agreed and consistent"
+      },
+      "monitoring": {
+        "description": "Keep timing consistent",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Bedtime starts at agreed time without reminders"
+      },
+      "execution": {
+        "description": "Lead bedtime routine",
+        "owner": "shared",
+        "definition_of_done": "Child is in bed NLT 9pm"
+      },
+      "frequency": "Daily",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-012-lunches-and-snacks",
+      "category": "Daughter Daily Care",
+      "name": "Lunches and snacks",
+      "planning": {
+        "description": "Plan food for school week",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "A lunch/snack plan exists for the week"
+      },
+      "monitoring": {
+        "description": "Ensure food is stocked and ready to pack",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All needed items are available the night before"
+      },
+      "execution": {
+        "description": "Pack lunch and snack each morning",
+        "owner": "ria",
+        "definition_of_done": "Bag is packed before departure"
+      },
+      "frequency": "Daily school days",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-013-school-drop-off",
+      "category": "Daughter Daily Care",
+      "name": "School drop-off",
+      "planning": {
+        "description": "Coordinate timing with work schedules",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Coverage is confirmed for the day"
+      },
+      "monitoring": {
+        "description": "Track who is available; adjust as needed",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Both parents know the plan before school day starts"
+      },
+      "execution": {
+        "description": "Handle drop-off",
+        "owner": "ria",
+        "definition_of_done": "Daughter is safely dropped off before 9am"
+      },
+      "frequency": "Most school days",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-014-school-morning-routine",
+      "category": "Daughter Daily Care",
+      "name": "School morning routine",
+      "planning": {
+        "description": "Decide what daughter needs each day (specials, weather, clothing, assignments)",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All items for the day are identified before morning begins"
+      },
+      "monitoring": {
+        "description": "Check schedule, lunch readiness, library books, sneakers, assignments",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All items confirmed ready the night before or by 7am"
+      },
+      "execution": {
+        "description": "Wake daughter, get ready, feed breakfast, vitamins, pack bags",
+        "owner": "ria",
+        "definition_of_done": "Daughter leaves on time with everything needed"
+      },
+      "frequency": "Daily school days",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-015-school-pick-up",
+      "category": "Daughter Daily Care",
+      "name": "School pick-up",
+      "planning": {
+        "description": "Coordinate timing with work schedules",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Coverage is confirmed for the day"
+      },
+      "monitoring": {
+        "description": "Track who is available; adjust as needed",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Both parents know the plan before school day starts"
+      },
+      "execution": {
+        "description": "Handle pick-up",
+        "owner": "shared",
+        "definition_of_done": "Daughter is safely picked up on time before 3:30pm"
+      },
+      "frequency": "Most school days",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-016-shower-support",
+      "category": "Daughter Daily Care",
+      "name": "Shower support",
+      "planning": {
+        "description": "Determine when support is needed",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Cadence is agreed"
+      },
+      "monitoring": {
+        "description": "Notice when it is due",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Shower happens without needing to be requested"
+      },
+      "execution": {
+        "description": "Assist daughter with shower",
+        "owner": "shared",
+        "definition_of_done": "Shower is completed"
+      },
+      "frequency": "Weekly/as needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-017-daughter-appointments",
+      "category": "Daughter Health",
+      "name": "Daughter appointments",
+      "planning": {
+        "description": "Identify needed visits and schedule",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Appointments are booked in advance"
+      },
+      "monitoring": {
+        "description": "Track upcoming visits",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All visits are on calendar"
+      },
+      "execution": {
+        "description": "Make appointments and take daughter",
+        "owner": "ria",
+        "definition_of_done": "Appointment attended and any follow-up noted"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-018-field-trips",
+      "category": "Daughter School Admin",
+      "name": "Field trips",
+      "planning": {
+        "description": "Sign up, complete forms, add to calendar",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Forms submitted and trip is on calendar"
+      },
+      "monitoring": {
+        "description": "Track details and communicate with the other parent",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Attending parent has all details in advance"
+      },
+      "execution": {
+        "description": "Attend field trip (outdoor: Wes, indoor: Ria)",
+        "owner": "shared",
+        "definition_of_done": "Parent attends as planned"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-019-school-forms-and-deadlines",
+      "category": "Daughter School Admin",
+      "name": "School forms and deadlines",
+      "planning": {
+        "description": "Review forms and plan submissions",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All upcoming deadlines are known"
+      },
+      "monitoring": {
+        "description": "Track deadlines and calendar entries",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Deadlines are on calendar with reminders"
+      },
+      "execution": {
+        "description": "Submit forms and registrations",
+        "owner": "ria",
+        "definition_of_done": "All forms submitted by deadline"
+      },
+      "frequency": "Ongoing",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-020-school-pick-up-backup-plan",
+      "category": "Daughter School Admin",
+      "name": "School pick-up backup plan",
+      "planning": {
+        "description": "Identify backup options and communicate with contacts",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "At least one reliable backup is confirmed"
+      },
+      "monitoring": {
+        "description": "Track availability of backups and flag gaps",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Backup is confirmed before it is needed"
+      },
+      "execution": {
+        "description": "Coordinate and arrange backup pick-up when needed",
+        "owner": "ria",
+        "definition_of_done": "Daughter is picked up safely by the agreed backup"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-021-birthday-parties-gifts-rsvps-thank-you-notes",
+      "category": "Daughter Social",
+      "name": "Birthday parties, gifts, RSVPs, thank-you notes",
+      "planning": {
+        "description": "Plan gifts, RSVPs, cards",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Gifts planned and RSVPs sent on time"
+      },
+      "monitoring": {
+        "description": "Track deadlines and follow-through",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "No deadlines are missed"
+      },
+      "execution": {
+        "description": "Complete tasks with daughter",
+        "owner": "ria",
+        "definition_of_done": "Gift given and thank-you note sent"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-022-daughter-playdates",
+      "category": "Daughter Social",
+      "name": "Daughter playdates",
+      "planning": {
+        "description": "Listen to daughter, reach out to parents for scheduling, update calendar",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Planned, on calendar, activity/location selected"
+      },
+      "monitoring": {
+        "description": "Track playdates and schedule/weather changes",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "No deadlines are missed"
+      },
+      "execution": {
+        "description": "Playdate with friend",
+        "owner": "shared",
+        "definition_of_done": "Playdate is complete"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-023-dog-feeding",
+      "category": "Dog Care",
+      "name": "Dog feeding",
+      "planning": {
+        "description": "Determine feeding schedule",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Schedule is agreed and clear"
+      },
+      "monitoring": {
+        "description": "Notice whether it has been done",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Feeding is confirmed each morning"
+      },
+      "execution": {
+        "description": "Feed dog each morning",
+        "owner": "shared",
+        "definition_of_done": "Dog is fed at consistent time"
+      },
+      "frequency": "Daily",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-024-dog-food-treats-rx-ordering",
+      "category": "Dog Care",
+      "name": "Dog food/treats/Rx ordering",
+      "planning": {
+        "description": "Determine reorder needs",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Reorder threshold is set"
+      },
+      "monitoring": {
+        "description": "Track inventory levels",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Order placed before running out"
+      },
+      "execution": {
+        "description": "Place orders for food, treats, meds",
+        "owner": "ria",
+        "definition_of_done": "Order arrives before stock depletes"
+      },
+      "frequency": "Monthly/as needed",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-025-dog-medications",
+      "category": "Dog Care",
+      "name": "Dog medications",
+      "planning": {
+        "description": "Know what meds are needed and when",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Medication schedule is documented"
+      },
+      "monitoring": {
+        "description": "Track supply and schedule",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Meds are reordered before running out"
+      },
+      "execution": {
+        "description": "Administer meds",
+        "owner": "shared",
+        "definition_of_done": "Meds given on schedule"
+      },
+      "frequency": "Daily/as prescribed",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-026-dog-waste-cleanup-outside",
+      "category": "Dog Care",
+      "name": "Dog waste cleanup outside",
+      "planning": {
+        "description": "Set cleanup cadence",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Frequency is agreed"
+      },
+      "monitoring": {
+        "description": "Notice when yard needs attention",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Yard is checked proactively"
+      },
+      "execution": {
+        "description": "Clean up yard",
+        "owner": "wes",
+        "definition_of_done": "Yard cleared at least 2-3x per week"
+      },
+      "frequency": "2-3x weekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-027-grooming-appointments",
+      "category": "Dog Care",
+      "name": "Grooming appointments",
+      "planning": {
+        "description": "Identify when grooming is due",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Grooming cadence is set"
+      },
+      "monitoring": {
+        "description": "Track schedule",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Appointment booked in advance"
+      },
+      "execution": {
+        "description": "Schedule and take dog",
+        "owner": "wes",
+        "definition_of_done": "Dog groomed on schedule"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-028-vet-appointments",
+      "category": "Dog Care",
+      "name": "Vet appointments",
+      "planning": {
+        "description": "Identify when visits are needed",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Visit cadence is understood"
+      },
+      "monitoring": {
+        "description": "Track schedule and Rx renewals",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Appointments are on calendar"
+      },
+      "execution": {
+        "description": "Schedule and take dog",
+        "owner": "wes",
+        "definition_of_done": "Appointment attended and Rx renewed if needed"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-029-emergency-preparedness",
+      "category": "Emergency Preparedness",
+      "name": "Emergency preparedness",
+      "planning": {
+        "description": "Research and plan supplies, systems, and scenarios",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "A prep plan is documented and agreed"
+      },
+      "monitoring": {
+        "description": "Track inventory, expiry dates, and gaps",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Supplies are checked and updated regularly"
+      },
+      "execution": {
+        "description": "Purchase, store, and maintain supplies",
+        "owner": "wes",
+        "definition_of_done": "Supplies are stocked and organized"
+      },
+      "frequency": "Ongoing/as needed",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-030-extended-family-visits-hosting",
+      "category": "Extended Family",
+      "name": "Extended family visits - hosting",
+      "planning": {
+        "description": "Plan visit timing, logistics, sleeping arrangements, activities",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Visit is planned and confirmed in advance"
+      },
+      "monitoring": {
+        "description": "Track RSVPs, dietary needs, and prep tasks",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All details are known before guests arrive"
+      },
+      "execution": {
+        "description": "Host, cook, clean, and coordinate during visit",
+        "owner": "shared",
+        "definition_of_done": "Guests are welcomed and visit runs smoothly"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-031-physical-labor-support-wife-s-parents-house",
+      "category": "Extended Family",
+      "name": "Physical labor support - wife's parents' house",
+      "planning": {
+        "description": "Identify tasks and coordinate timing",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Task list and schedule are agreed in advance"
+      },
+      "monitoring": {
+        "description": "Track what needs doing and when",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Upcoming tasks are flagged before they become urgent"
+      },
+      "execution": {
+        "description": "Complete physical labor tasks",
+        "owner": "wes",
+        "definition_of_done": "Tasks are completed as agreed"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-032-repairs-and-property-manager-coordination",
+      "category": "Home Maintenance",
+      "name": "Repairs and property manager coordination",
+      "planning": {
+        "description": "Identify issues and coordinate repair path",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Issue is logged and next step is clear"
+      },
+      "monitoring": {
+        "description": "Follow up to ensure completion",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Repair is completed without repeated reminders"
+      },
+      "execution": {
+        "description": "Handle repairs or liaise with property manager",
+        "owner": "wes",
+        "definition_of_done": "Issue is resolved and closed"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-033-home-furniture-ordering-and-assembly",
+      "category": "Home and Tech",
+      "name": "Home furniture - ordering and assembly",
+      "planning": {
+        "description": "Research, select, and plan furniture purchases",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Options are reviewed and decision is made"
+      },
+      "monitoring": {
+        "description": "Track delivery timelines and what is still needed",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Deliveries are confirmed and gaps noted"
+      },
+      "execution": {
+        "description": "Assemble and place furniture",
+        "owner": "wes",
+        "definition_of_done": "Furniture is assembled and in place"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-034-home-wi-fi-and-tech-infrastructure",
+      "category": "Home and Tech",
+      "name": "Home wi-fi and tech infrastructure",
+      "planning": {
+        "description": "Research and decide on routers, devices, and systems",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Tech needs are assessed and a plan is in place"
+      },
+      "monitoring": {
+        "description": "Track performance, outages, and upgrade needs",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Issues are noticed and addressed proactively"
+      },
+      "execution": {
+        "description": "Set up, maintain, and troubleshoot home tech",
+        "owner": "wes",
+        "definition_of_done": "Wi-fi and devices are working reliably"
+      },
+      "frequency": "Ongoing/as needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-035-researching-home-electronics-and-cars",
+      "category": "Home and Tech",
+      "name": "Researching home electronics and cars",
+      "planning": {
+        "description": "Research options, compare, and recommend",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Research is complete before a purchase decision is needed"
+      },
+      "monitoring": {
+        "description": "Track what needs replacing or upgrading",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Upcoming needs are flagged in advance"
+      },
+      "execution": {
+        "description": "Make final decision and purchase",
+        "owner": "shared",
+        "definition_of_done": "Purchase is made based on research"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-036-bills-and-finances",
+      "category": "Household Admin",
+      "name": "Bills and finances",
+      "planning": {
+        "description": "Manage bills and financial flow",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Payment schedule is organized"
+      },
+      "monitoring": {
+        "description": "Track due dates and spending",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All due dates are on calendar"
+      },
+      "execution": {
+        "description": "Pay bills and manage accounts",
+        "owner": "ria",
+        "definition_of_done": "All bills paid on time"
+      },
+      "frequency": "Monthly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-037-camp-signup",
+      "category": "Household Admin",
+      "name": "Camp signup",
+      "planning": {
+        "description": "Research options and decide",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Options are reviewed and decision made"
+      },
+      "monitoring": {
+        "description": "Track deadlines",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Signup deadlines are on calendar"
+      },
+      "execution": {
+        "description": "Complete registration",
+        "owner": "wes",
+        "definition_of_done": "Registration submitted on time"
+      },
+      "frequency": "Seasonal",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-038-daughter-s-digital-life-screen-time-apps-parenta",
+      "category": "Household Admin",
+      "name": "Daughter's digital life - screen time, apps, parental controls",
+      "planning": {
+        "description": "Set rules, research tools, and configure systems",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Expectations and controls are agreed and in place"
+      },
+      "monitoring": {
+        "description": "Track usage patterns and flag issues",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Screen time and content are regularly reviewed"
+      },
+      "execution": {
+        "description": "Enforce limits and adjust settings as needed",
+        "owner": "shared",
+        "definition_of_done": "Controls are working and daughter understands expectations"
+      },
+      "frequency": "Ongoing",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-039-dog-insurance-claims",
+      "category": "Household Admin",
+      "name": "Dog insurance claims",
+      "planning": {
+        "description": "Know when a claim is eligible",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Eligibility is understood"
+      },
+      "monitoring": {
+        "description": "Track outstanding submissions",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "All eligible claims are submitted"
+      },
+      "execution": {
+        "description": "Submit claims",
+        "owner": "wes",
+        "definition_of_done": "Claims submitted within the eligible window"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-040-household-supplies",
+      "category": "Household Admin",
+      "name": "Household supplies",
+      "planning": {
+        "description": "Determine what is needed",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Supply needs are reviewed regularly"
+      },
+      "monitoring": {
+        "description": "Track inventory",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Gaps noticed before running out"
+      },
+      "execution": {
+        "description": "Purchase supplies",
+        "owner": "shared",
+        "definition_of_done": "Supplies restocked before they run out"
+      },
+      "frequency": "Weekly/as needed",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-041-overall-family-calendar",
+      "category": "Household Admin",
+      "name": "Overall family calendar",
+      "planning": {
+        "description": "Maintain events, activities, obligations",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All known events are entered"
+      },
+      "monitoring": {
+        "description": "Track conflicts and upcoming logistics",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Conflicts flagged and resolved in advance"
+      },
+      "execution": {
+        "description": "Update and manage calendar",
+        "owner": "ria",
+        "definition_of_done": "Calendar is current and accessible to both"
+      },
+      "frequency": "Daily/weekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-042-school-deadlines",
+      "category": "Household Admin",
+      "name": "School deadlines",
+      "planning": {
+        "description": "Review notices and plan submissions",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All upcoming deadlines are identified"
+      },
+      "monitoring": {
+        "description": "Track dates",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Deadlines are on calendar with buffer"
+      },
+      "execution": {
+        "description": "Complete forms and tasks",
+        "owner": "ria",
+        "definition_of_done": "All submitted on time"
+      },
+      "frequency": "Ongoing",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-043-subscription-and-membership-management",
+      "category": "Household Admin",
+      "name": "Subscription and membership management",
+      "planning": {
+        "description": "Decide which subscriptions and memberships to keep or add",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Subscriptions are reviewed and intentional"
+      },
+      "monitoring": {
+        "description": "Track renewal dates, costs, and usage",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "No subscription renews unnoticed"
+      },
+      "execution": {
+        "description": "Cancel, renew, or update subscriptions",
+        "owner": "shared",
+        "definition_of_done": "All subscriptions are current and intentional"
+      },
+      "frequency": "Ongoing/monthly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-044-taxes",
+      "category": "Household Admin",
+      "name": "Taxes",
+      "planning": {
+        "description": "Identify what is needed each year",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Documents are gathered in advance"
+      },
+      "monitoring": {
+        "description": "Track deadlines",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Filing deadline is on calendar"
+      },
+      "execution": {
+        "description": "Complete and file taxes",
+        "owner": "wes",
+        "definition_of_done": "Taxes filed on time"
+      },
+      "frequency": "Annual",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-045-home-and-car-insurance-renewals",
+      "category": "Insurance",
+      "name": "Home and car insurance renewals",
+      "planning": {
+        "description": "Review coverage needs and research options at renewal",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Coverage is reviewed before renewal deadline"
+      },
+      "monitoring": {
+        "description": "Track renewal dates and flag changes in coverage or cost",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "No renewal is missed or auto-renewed without review"
+      },
+      "execution": {
+        "description": "Renew or switch policies and update records",
+        "owner": "wes",
+        "definition_of_done": "Policies are current and confirmed"
+      },
+      "frequency": "Annual/as needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-046-bath-mats",
+      "category": "Laundry",
+      "name": "Bath mats",
+      "planning": {
+        "description": "Determine cadence",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Frequency is agreed"
+      },
+      "monitoring": {
+        "description": "Track when due",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Mats washed within the cycle"
+      },
+      "execution": {
+        "description": "Wash, dry, put away",
+        "owner": "ria",
+        "definition_of_done": "Clean bath mats are in place"
+      },
+      "frequency": "Monthly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-047-daughter-laundry",
+      "category": "Laundry",
+      "name": "Daughter laundry",
+      "planning": {
+        "description": "Determine schedule",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Cadence is agreed"
+      },
+      "monitoring": {
+        "description": "Track when basket is full and what is needed",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Laundry done before daughter runs short"
+      },
+      "execution": {
+        "description": "Wash, dry, fold, put away",
+        "owner": "ria",
+        "definition_of_done": "Clothes are clean and put away"
+      },
+      "frequency": "Weekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-048-husband-laundry",
+      "category": "Laundry",
+      "name": "Husband laundry",
+      "planning": {
+        "description": "Determine schedule",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Cadence is set"
+      },
+      "monitoring": {
+        "description": "Track when needed",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Laundry done before running low"
+      },
+      "execution": {
+        "description": "Wash, dry, fold, put away",
+        "owner": "wes",
+        "definition_of_done": "Clothes are clean and put away"
+      },
+      "frequency": "Weekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-049-kitchen-towels",
+      "category": "Laundry",
+      "name": "Kitchen towels",
+      "planning": {
+        "description": "Determine cadence",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Frequency is agreed"
+      },
+      "monitoring": {
+        "description": "Track when due",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Towels washed within the cycle"
+      },
+      "execution": {
+        "description": "Wash, dry, put away",
+        "owner": "ria",
+        "definition_of_done": "Clean kitchen towels are available"
+      },
+      "frequency": "Every 2 weeks",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-050-regular-towels",
+      "category": "Laundry",
+      "name": "Regular towels",
+      "planning": {
+        "description": "Determine cadence",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Frequency is agreed"
+      },
+      "monitoring": {
+        "description": "Track when due",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Towels washed within the cycle"
+      },
+      "execution": {
+        "description": "Wash, dry, put away",
+        "owner": "ria",
+        "definition_of_done": "Clean towels are available"
+      },
+      "frequency": "Every 2 weeks",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-051-sheets-3-beds",
+      "category": "Laundry",
+      "name": "Sheets (3 beds)",
+      "planning": {
+        "description": "Determine cadence",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Frequency is agreed for all beds"
+      },
+      "monitoring": {
+        "description": "Track when due",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Sheets are washed within the cycle"
+      },
+      "execution": {
+        "description": "Wash, dry, remake beds",
+        "owner": "ria",
+        "definition_of_done": "All beds are made with clean sheets"
+      },
+      "frequency": "Every 2 weeks",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-052-wife-laundry",
+      "category": "Laundry",
+      "name": "Wife laundry",
+      "planning": {
+        "description": "Determine schedule",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Cadence is set"
+      },
+      "monitoring": {
+        "description": "Track when needed",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Laundry done before running low"
+      },
+      "execution": {
+        "description": "Wash, dry, fold, put away",
+        "owner": "ria",
+        "definition_of_done": "Clothes are clean and put away"
+      },
+      "frequency": "Weekly",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-053-dishwasher-loading-unloading",
+      "category": "Meals and Kitchen",
+      "name": "Dishwasher loading/unloading",
+      "planning": {
+        "description": "Set standard for when to run it",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Timing expectation is clear"
+      },
+      "monitoring": {
+        "description": "Ensure dishes are clean in time for morning",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Lunchbox and water bottle are clean before bed"
+      },
+      "execution": {
+        "description": "Load and unload dishwasher",
+        "owner": "wes",
+        "definition_of_done": "Dishwasher is run and unloaded before morning"
+      },
+      "frequency": "Daily",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-054-family-meal-quality-and-nutrition",
+      "category": "Meals and Kitchen",
+      "name": "Family meal quality and nutrition",
+      "planning": {
+        "description": "Decide what the family should be eating",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "A general nutrition approach is agreed"
+      },
+      "monitoring": {
+        "description": "Notice patterns and timing",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Issues flagged before they become habits"
+      },
+      "execution": {
+        "description": "Maintain meal regularity",
+        "owner": "ria",
+        "definition_of_done": "Meals are consistent and balanced"
+      },
+      "frequency": "Daily/weekly",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-055-kitchen-reset",
+      "category": "Meals and Kitchen",
+      "name": "Kitchen reset",
+      "planning": {
+        "description": "Set standard for nightly reset",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Standard is agreed and visible"
+      },
+      "monitoring": {
+        "description": "Notice what is left undone",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Gaps caught before going to bed"
+      },
+      "execution": {
+        "description": "Reset kitchen each night",
+        "owner": "wes",
+        "definition_of_done": "Counters clear, dishes handled, surfaces ready"
+      },
+      "frequency": "Nightly",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-056-takeout-ordering-in",
+      "category": "Meals and Kitchen",
+      "name": "Takeout/ordering in",
+      "planning": {
+        "description": "Decide when takeout makes sense",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Decision is made proactively, not reactively"
+      },
+      "monitoring": {
+        "description": "Notice when a meal plan gap exists",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Gap is caught before everyone is hungry"
+      },
+      "execution": {
+        "description": "Order and pick up or receive",
+        "owner": "shared",
+        "definition_of_done": "Food arrives without chaos"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-057-weekly-groceries",
+      "category": "Meals and Kitchen",
+      "name": "Weekly groceries",
+      "planning": {
+        "description": "Make list, plan meals and snacks",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "List is complete before shopping"
+      },
+      "monitoring": {
+        "description": "Track what is running low",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Gaps noticed before they cause a problem"
+      },
+      "execution": {
+        "description": "Shop and put groceries away",
+        "owner": "ria",
+        "definition_of_done": "Food is purchased and put away before needed"
+      },
+      "frequency": "Weekly",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-058-weeknight-meals",
+      "category": "Meals and Kitchen",
+      "name": "Weeknight meals",
+      "planning": {
+        "description": "Decide meals and needed ingredients",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Plan is set before shopping"
+      },
+      "monitoring": {
+        "description": "Ensure food is available",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All ingredients are on hand"
+      },
+      "execution": {
+        "description": "Cook dinner",
+        "owner": "ria",
+        "definition_of_done": "Dinner is served at a reasonable time"
+      },
+      "frequency": "Most weekdays",
+      "monitoring_tier": "T2_state",
+      "status": "active"
+    },
+    {
+      "id": "resp-059-annual-weeding",
+      "category": "Outdoor and Vehicles",
+      "name": "Annual weeding",
+      "planning": {
+        "description": "Determine timing and scope",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Weeding plan is set at start of season"
+      },
+      "monitoring": {
+        "description": "Track when weeding is due",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Timing is noted and acted on proactively"
+      },
+      "execution": {
+        "description": "Complete weeding",
+        "owner": "wes",
+        "definition_of_done": "All beds are weeded within the agreed window"
+      },
+      "frequency": "Annual",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-060-car-cleaning-subaru-ascent",
+      "category": "Outdoor and Vehicles",
+      "name": "Car cleaning - Subaru Ascent",
+      "planning": {
+        "description": "Determine cleaning schedule and standards",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Cleaning cadence is agreed"
+      },
+      "monitoring": {
+        "description": "Track when cleaning is due",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Car is noticed and flagged before it becomes overdue"
+      },
+      "execution": {
+        "description": "Clean car inside and out",
+        "owner": "wes",
+        "definition_of_done": "Car is visibly clean inside and out"
+      },
+      "frequency": "As needed",
+      "monitoring_tier": "T3_human_capture",
+      "status": "active"
+    },
+    {
+      "id": "resp-061-car-servicing-and-cleaning-electric-car",
+      "category": "Outdoor and Vehicles",
+      "name": "Car servicing and cleaning - electric car",
+      "planning": {
+        "description": "Determine service and cleaning needs",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Service intervals and cleaning cadence are tracked"
+      },
+      "monitoring": {
+        "description": "Track service intervals and cleaning schedule",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "No service or cleaning is overdue"
+      },
+      "execution": {
+        "description": "Service and clean car",
+        "owner": "wes",
+        "definition_of_done": "Car is serviced and clean on schedule"
+      },
+      "frequency": "As needed/ongoing",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-062-car-servicing-both-cars",
+      "category": "Outdoor and Vehicles",
+      "name": "Car servicing - both cars",
+      "planning": {
+        "description": "Determine service needs for both vehicles",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Service intervals are tracked for both cars"
+      },
+      "monitoring": {
+        "description": "Track mileage and upcoming service appointments",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "No service is overdue"
+      },
+      "execution": {
+        "description": "Book and take cars for service",
+        "owner": "wes",
+        "definition_of_done": "Both cars serviced on schedule"
+      },
+      "frequency": "Ongoing/as needed",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-063-gardener-lawn-support-coordination",
+      "category": "Outdoor and Vehicles",
+      "name": "Gardener/lawn support coordination",
+      "planning": {
+        "description": "Research, hire, and schedule lawn/garden support",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Gardener is booked and scope is agreed"
+      },
+      "monitoring": {
+        "description": "Coordinate appointments and communicate scope",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Gardener has clear direction before each visit"
+      },
+      "execution": {
+        "description": "Liaise with gardener; oversee work",
+        "owner": "ria",
+        "definition_of_done": "Work is completed as expected"
+      },
+      "frequency": "Seasonal/ongoing",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-064-snow-plowing",
+      "category": "Outdoor and Vehicles",
+      "name": "Snow plowing",
+      "planning": {
+        "description": "Arrange plowing service or plan for removal",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Plan is in place before first snow"
+      },
+      "monitoring": {
+        "description": "Monitor weather and ensure driveway is clear",
+        "owner": "wisp",
+        "owner_legacy": "wes",
+        "definition_of_done": "Driveway is checked after each snowfall"
+      },
+      "execution": {
+        "description": "Coordinate or carry out snow removal",
+        "owner": "wes",
+        "definition_of_done": "Driveway is passable without delay"
+      },
+      "frequency": "As needed/winter",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-065-couple-therapy",
+      "category": "Relationship",
+      "name": "Couple therapy",
+      "planning": {
+        "description": "Research therapists, schedule sessions, manage logistics",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Therapist is booked and sessions are on the calendar"
+      },
+      "monitoring": {
+        "description": "Track upcoming sessions, reschedules, and continuity",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "No sessions are missed or forgotten without notice"
+      },
+      "execution": {
+        "description": "Attend sessions and engage in the work",
+        "owner": "shared",
+        "definition_of_done": "Both partners attend and participate"
+      },
+      "frequency": "Recurring",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-066-date-night-and-couple-time",
+      "category": "Relationship",
+      "name": "Date night and couple time",
+      "planning": {
+        "description": "Decide on activities, timing, and logistics",
+        "owner": "wisp",
+        "owner_legacy": "tbd",
+        "definition_of_done": "A plan is made proactively rather than reactively"
+      },
+      "monitoring": {
+        "description": "Track when time together last happened and when next is planned",
+        "owner": "wisp",
+        "owner_legacy": "tbd",
+        "definition_of_done": "Couple time is a recurring item, not an afterthought"
+      },
+      "execution": {
+        "description": "Make reservations, arrange childcare, follow through",
+        "owner": "tbd",
+        "definition_of_done": "Date or intentional time together actually happens"
+      },
+      "frequency": "Recurring",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-067-family-outings-and-dinners-out",
+      "category": "Social and Holidays",
+      "name": "Family outings and dinners out",
+      "planning": {
+        "description": "Decide options and coordinate timing",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Outing is planned in advance"
+      },
+      "monitoring": {
+        "description": "Track availability",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Timing confirmed with all family members"
+      },
+      "execution": {
+        "description": "Reserve and plan",
+        "owner": "ria",
+        "definition_of_done": "Reservation made and plan confirmed"
+      },
+      "frequency": "Recurring",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-068-gifts-for-family",
+      "category": "Social and Holidays",
+      "name": "Gifts for family",
+      "planning": {
+        "description": "Decide what to buy and for whom",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "Gift list is prepared ahead of occasions"
+      },
+      "monitoring": {
+        "description": "Track occasions and deadlines",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "All upcoming occasions are on calendar"
+      },
+      "execution": {
+        "description": "Buy and manage gifts",
+        "owner": "shared",
+        "definition_of_done": "Gifts purchased and ready before the occasion"
+      },
+      "frequency": "Year-round",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-069-holidays",
+      "category": "Social and Holidays",
+      "name": "Holidays",
+      "planning": {
+        "description": "Plan logistics, expectations, and gifts",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Plan is set well in advance"
+      },
+      "monitoring": {
+        "description": "Track everything that must happen",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All tasks are on a list with owners"
+      },
+      "execution": {
+        "description": "Execute the plan",
+        "owner": "ria",
+        "definition_of_done": "Holiday happens as planned"
+      },
+      "frequency": "Seasonal",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-070-social-events-with-friends",
+      "category": "Social and Holidays",
+      "name": "Social events with friends",
+      "planning": {
+        "description": "Decide dates and initiate plans",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Plans are initiated proactively"
+      },
+      "monitoring": {
+        "description": "Track RSVPs and follow-through",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "All logistics confirmed"
+      },
+      "execution": {
+        "description": "Plan and organize",
+        "owner": "ria",
+        "definition_of_done": "Event happens as planned"
+      },
+      "frequency": "Ongoing",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-071-teacher-gifts-cards",
+      "category": "Social and Holidays",
+      "name": "Teacher gifts/cards",
+      "planning": {
+        "description": "Plan for key moments (Christmas, end of year)",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Gifts/cards planned ahead of deadline"
+      },
+      "monitoring": {
+        "description": "Track deadlines",
+        "owner": "wisp",
+        "owner_legacy": "ria",
+        "definition_of_done": "Deadlines are on calendar"
+      },
+      "execution": {
+        "description": "Buy and prepare",
+        "owner": "ria",
+        "definition_of_done": "Gift/card ready before last school day"
+      },
+      "frequency": "Seasonal",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    },
+    {
+      "id": "resp-072-vacation-and-travel-planning",
+      "category": "Social and Holidays",
+      "name": "Vacation and travel planning",
+      "planning": {
+        "description": "Research destinations, options, and timing",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "A shortlist of options is ready to decide from"
+      },
+      "monitoring": {
+        "description": "Track booking deadlines, documents, and logistics",
+        "owner": "wisp",
+        "owner_legacy": "shared",
+        "definition_of_done": "All bookings and prep are confirmed in advance"
+      },
+      "execution": {
+        "description": "Book flights, accommodation, and activities",
+        "owner": "shared",
+        "definition_of_done": "All travel is booked and itinerary is ready"
+      },
+      "frequency": "As needed/annual",
+      "monitoring_tier": "T1_calendar",
+      "status": "active"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind 4 is CSS-first: the theme lives here, not in a tailwind.config.js.
+ * Tokens mirror src/components/Dashboard.jsx so the production dashboard and
+ * this shell share one palette. Ink-navy surface; the only gradient in the
+ * whole app is the Wisp capture orb.
+ */
+@theme {
+  --color-ink: #0d1120;
+  --color-panel: #141a2e;
+  --color-panel2: #1a2140;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-text: #e8ecff;
+  --color-dim: #8b93b5;
+
+  --color-ria: #f9a8d4;
+  --color-wes: #7dd3fc;
+  --color-family: #c4b5fd;
+
+  --color-good: #4ade80;
+  --color-warn: #fbbf24;
+  --color-crit: #fb7185;
+
+  --font-sans: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
