@@ -36,8 +36,11 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
       reads/writes + Vercel deploy + the 15-min cron schedule.
 
 ## Phase 2 — Capture + accountability (target: weeks 2-3)
-- [ ] Telegram bot: webhook route, secret token verify, quick-capture to observation
-- [ ] ObservationExtract pipeline (generateObject + safeParse + retry + dead-letter)
+- [~] Telegram bot: secret-token verify (src/lib/http/webhook.ts) + TranscriptAdapter
+      (src/lib/adapters/telegram.ts) DONE + tested. Remaining: webhook route + DB write.
+- [~] ObservationExtract pipeline: injection-safe prompt + parse/retry/dead-letter
+      policy DONE (src/lib/extraction/, tested with mocked output). Remaining: live
+      generateObject call + observation/dead-letter DB writes.
 - [ ] Confirmation endpoint: one-tap, session-derived confirmed_by, idempotent,
       transactional escalation cancel
 - [ ] Escalation engine in heartbeat: critical + pact only, push → SMS → call,
@@ -46,6 +49,8 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
 - [ ] START Twilio A2P 10DLC registration (sole prop) — 1-4 week approval lead time, do this EARLY
 - [ ] Daily briefing agent (06:00 ET) → briefing row + ntfy/Telegram push
 - [ ] T2 engine v0: thresholds for the 8 T2_state rows; restock signals
+      (PARKED — needs a decision: T2_state seed rows carry qualitative state, not
+      numeric thresholds. Decide where a threshold config lives before building.)
 - [ ] Gmail read-only school-email extraction (Romy's school senders allowlist)
 - [ ] Weekly planning agent (Sun) → proposed plan rows + approval UI
 
@@ -64,10 +69,19 @@ Legend: [ ] open  [~] in progress  [x] done  [-] skipped/deferred
 - [ ] Fleet rollout: remaining satellites imaged per kiosk checklist
 - [ ] Intercom v1: PTT upload → transcribe → TTS fan-out → SMS transcript;
       blob deleted post-transcribe
-- [ ] Announce pipeline: templates + verified-parent SMS, 280 cap, URL strip,
-      quiet hours 20:30–08:00 ET server-side
+- [~] Announce pipeline: policy layer DONE (src/lib/announce/policy.ts — 280 cap,
+      URL strip, quiet-hours queue/send/reject, verified-parent allowlist, tested).
+      Remaining: announce route + fleet TTS fan-out.
 - [ ] Cozyla: Fully Kiosk sideload validation (check Cozyla Frames FB group first)
 - [ ] Voice Phase 2 decision gate: ConversationRelay worker only if SMS adoption proves out
 
 ## Gate
-- [ ] Day-90 re-audit: rerun the spreadsheet scoring. Targets: Ria monitoring <20%, planning <30%, Wisp execution = 0%
+- [~] Day-90 re-audit: share calculator DONE (src/lib/audit/shares.ts — baseline
+      from legacy owners, measured from window events, meetsDay90Targets; tested
+      against the real seed yardstick, Ria 40/72). Remaining: bind to the live
+      window (confirmations/plans/signal resolutions). Targets: Ria monitoring
+      <20%, planning <30%, Wisp execution = 0%.
+
+## Cross-cutting (built this session)
+- [x] ET/school-day module (src/lib/time/et.ts) — one place for America/New_York
+      wall-clock, quiet hours 20:30–08:00 ET, school-day. Feeds announce + timing.

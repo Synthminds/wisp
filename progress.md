@@ -1,28 +1,26 @@
 # progress.md — session handoff (keep under 50 lines)
 
-## Current state (2026-07-05)
-v2 scaffold unpacked; Phase 1 foundation built and verified (typecheck, lint,
-13 tests, next build all green; seed:verify 72 rows / 49-8-15). Global Coding
-Rules (Synthminds, via Mem) referenced from CLAUDE.md; v4 briefing PDF in docs/.
+## Current state (2026-07-15)
+Foundation done + verified (typecheck/lint/build green). Next 15 + React 19 +
+Tailwind 4 shell (/api/health); full Drizzle schema with THE CONTRACT in SQL
+(human_owner has no 'wisp'; planning/monitoring CHECK='wisp'; confirmation XOR +
+partial-unique; RLS on all 9 tables); migration 0000_init; idempotent seed
+loader. DB layer PROVEN on real Postgres 16 (migration + verify-contract.sql 6/6;
+72 seed rows, tiers 49/8/15, 0 execution=wisp). Deterministic monitoring core:
+cron verify (src/lib/http/verify.ts), escalation eval (src/lib/escalation/),
+T1 cadence+derive (src/lib/t1/), CRON-gated heartbeat (app/api/cron/heartbeat).
+Two-user auth (scrypt + HMAC sessions, /api/auth/login+logout, login page +
+session gate on /); needs env SESSION_SECRET + AUTH_*_HASH to sign in.
 
-Now present: Next 15 + React 19 + Tailwind 4 app shell (+ /api/health),
-full Drizzle schema in src/db/schema.ts with THE CONTRACT enforced in SQL
-(human_owner enum has no 'wisp'; planning/monitoring owner CHECK='wisp';
-confirmation XOR + partial-unique idempotency; RLS crudPolicy on all 9 tables),
-migration drizzle/migrations/0000_init.sql, idempotent seed loader, contract
-tests, feature plans in docs/features/, verify skill + fixer agent in .claude/.
-Also: EscalationPolicy Zod schema (cancel_on_confirm literal true) and the T1
-cadence engine v0 (src/lib/t1/cadence.ts). Plus the deterministic monitoring
-core: cron-auth verify (src/lib/http/verify.ts, constant-time), escalation
-evaluation (src/lib/escalation/evaluate.ts), T1 due-signal derivation
-(src/lib/t1/derive.ts), and the CRON_SECRET-gated force-dynamic heartbeat route
-(app/api/cron/heartbeat). All pure/LLM-free; DB wiring deferred. 66 tests green.
-DB layer PROVEN on real Postgres 16: migration applies (9 tables, RLS, 36
-policies); verify-contract.sql 6/6; 72 seed rows, tiers 49/8/15, 0 execution=wisp.
-Two-user auth built+tested (scrypt passwords, HMAC sessions, /api/auth/login,
-pnpm auth:hash); login page + logout route + session gate on / now done
-(app/login, app/logout-button, / redirects to /login without a valid session).
-Needs env (SESSION_SECRET, AUTH_*_HASH) to actually sign in. 86 tests.
+Credential-free frontier built out (pure cores, DB/network wiring deferred):
+ET/school-day module (src/lib/time/et.ts — quiet hours 20:30–08:00 ET);
+announce policy (src/lib/announce/policy.ts — 280 cap/URL strip/queue/reject);
+webhook verify (src/lib/http/webhook.ts — Telegram secret-token + Twilio HMAC,
+checked vs Twilio's published vector); extraction (src/lib/extraction/ —
+injection-safe prompt + parse/retry/dead-letter policy); Telegram adapter
+(src/lib/adapters/telegram.ts); day-90 share calculator (src/lib/audit/shares.ts,
+verified vs the real seed baseline Ria 40/72). 131 tests. PARKED: T2 engine v0
+(seed T2_state rows are qualitative, need a threshold-config decision first).
 
 What exists and is verified:
 - seed/responsibilities.json — 72 rows, owner totals verified against the
